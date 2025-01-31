@@ -12,7 +12,7 @@ Ce repository me permet de suivre mon évolution en React.js, en y ajoutant rég
 
 Cloner le repository
 
-git clone https://github.com/mon-utilisateur/mon-repository.git
+https://github.com/Ibrvhima/ReactJs.git
 
 📢 Je mets à jour ce repository régulièrement en fonction de mon apprentissage.
 
