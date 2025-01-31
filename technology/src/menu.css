@@ -1,0 +1,18 @@
+.header{
+     background-color: rgb(237, 235, 235);
+     padding: 10px;
+     font-family: sans-serif;
+     
+}
+ul{
+     display: flex;
+     justify-content: space-between;
+     list-style: none;
+}
+li{
+     font-size: 18px;
+}
+li:hover{
+     color: rgb(10, 202, 202);
+     cursor: pointer;
+}

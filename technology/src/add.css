@@ -1,0 +1,29 @@
+.addtechno{
+     background-color: beige;
+     font-family: sans-serif;
+     padding: 20px;
+}
+h1{
+     text-align: center;
+}
+form{
+     display: grid;
+     
+}
+label{
+     margin: 10px 0;
+}
+input, select, textarea{
+     padding: 7px;
+     border: none;
+     outline: none;
+}
+.button{
+     border: none;
+     padding: 10px;
+     background-color: green;
+     color: #FFF;
+     font-weight: 800;
+     cursor: pointer;
+     margin-top: 20px;
+}
