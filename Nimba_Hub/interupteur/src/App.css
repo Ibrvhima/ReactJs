@@ -1,0 +1,18 @@
+.container {
+  margin: 0 auto;
+  width: 400px;
+  margin-top: 200px;
+  border: black solid 1px;
+  text-align: center;
+  padding: 30px;
+  border-radius: 10px;
+  font-family: sans-serif;
+}
+button {
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 800;
+}
