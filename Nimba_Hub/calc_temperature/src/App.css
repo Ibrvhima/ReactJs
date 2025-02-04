@@ -1,38 +1,88 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* Conteneur principal */
+.converter-container {
+     text-align: center;
+     font-family: Arial, sans-serif;
+     padding: 20px;
+     background-color: #f8f9fa;
+     border-radius: 10px;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+     max-width: 400px;
+     margin: auto;
+   }
+   
+   /* Titre */
+   .converter-title {
+     font-size: 24px;
+     font-weight: bold;
+     margin-bottom: 15px;
+   }
+   
+   /* Groupe d'entrées */
+   .input-group {
+     margin-bottom: 15px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+   }
+   
+   .input-group label {
+     font-size: 18px;
+     font-weight: bold;
+     margin-right: 10px;
+   }
+   
+   .input-group input {
+     width: 100px;
+     padding: 8px;
+     font-size: 16px;
+     text-align: center;
+     border: 2px solid #ddd;
+     border-radius: 5px;
+     transition: all 0.3s ease;
+   }
+   
+   .input-group input:focus {
+     border-color: #007bff;
+     outline: none;
+   }
+   
+   /* Message d'avertissement */
+   .warning-message {
+     font-size: 16px;
+     font-weight: bold;
+     color: red;
+     margin-top: 10px;
+   }
+   
+   /* Échelle de température */
+   .temperature-scale {
+     position: relative;
+     width: 100%;
+     height: 30px;
+     margin-top: 20px;
+     background: linear-gradient(to right, blue, green, rgba(255, 214, 29, 0.993), red);
+     border-radius: 5px;
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     padding: 5px;
+   }
+   
+   /* Graduation de l'échelle */
+   .scale-mark {
+     font-size: 12px;
+     color: white;
+     font-weight: bold;
+   }
+   
+   /* Curseur de température */
+   .temperature-indicator {
+     position: absolute;
+     bottom: -15px;
+     width: 15px;
+     height: 15px;
+     background-color: black;
+     border-radius: 50%;
+     transform: translateX(-50%);
+   }
+   
