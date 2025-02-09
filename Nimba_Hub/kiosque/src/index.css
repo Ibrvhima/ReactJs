@@ -43,11 +43,12 @@
   gap: 20px;
 }
 
-.menu-section, .panier-section {
+.menu-section,
+.panier-section {
   background-color: white;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .boissons-grid {
@@ -107,3 +108,25 @@
   border-radius: 4px;
   cursor: pointer;
 }
+
+
+.flex_components {
+  display: grid;
+  grid-template-columns: 2fr 1fr; 
+  gap: 20px;
+  width: 100%;
+}
+
+.menu-section {
+  background: #f0f0f0;
+  padding: 20px;
+}
+
+.panier-section {
+  background: #ddd;
+  padding: 20px;
+}
+
+
+
+
