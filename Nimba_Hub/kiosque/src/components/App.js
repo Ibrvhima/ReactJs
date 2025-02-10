@@ -15,13 +15,13 @@ function App() {
       stock: 15,
       image: "ginginbre.png",
     },
-    { id: 3, nom: "Jus de Baobab", prix: 7000, stock: 10, image: "bissap.png" },
+    { id: 3, nom: "Jus de Banane", prix: 7000, stock: 10, image: "banane.png" },
     {
       id: 4,
-      nom: "Jus d'Ananas",
+      nom: "Jus d'ananas",
       prix: 6000,
       stock: 12,
-      image: "ginginbre.png",
+      image: "ananas.png",
     },
   ]);
 

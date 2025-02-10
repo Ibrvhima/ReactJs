@@ -1,4 +1,4 @@
-// BoissonCard.js
+import { FaPlus } from "react-icons/fa";
 function BoissonCard({ boisson, ajouterAuPanier }) {
   return (
     <div className="boisson-card">
@@ -10,7 +10,7 @@ function BoissonCard({ boisson, ajouterAuPanier }) {
         onClick={() => ajouterAuPanier(boisson)}
         disabled={boisson.stock === 0}
       >
-        {boisson.stock === 0 ? "Rupture" : "Ajouter"}
+        {boisson.stock === 0 ? "Rupture" : "Ajouter"} <FaPlus size={10}/>
       </button>
     </div>
   );
