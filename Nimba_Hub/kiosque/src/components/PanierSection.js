@@ -1,6 +1,9 @@
 import { FaTrash } from "react-icons/fa";
 
-function PanierSection({ panier, validerCommande, supprimerDuPanier }) {
+function PanierSection({ panier, validerCommande, supprimerProduit, mettreAJourPanier, mettreAJourStock }) {
+  // Vérifier que supprimerProduit est bien reçu
+  console.log("supprimerProduit:", supprimerProduit);
+
   // Regrouper les éléments du panier par nom et compter les quantités
   const panierRegroupe = panier.reduce((acc, item) => {
     const existant = acc.find((el) => el.nom === item.nom);
@@ -12,6 +15,24 @@ function PanierSection({ panier, validerCommande, supprimerDuPanier }) {
     return acc;
   }, []);
 
+  // Fonction pour réduire la quantité d'un produit
+  const reduireQuantite = (nom) => {
+    let produitTrouve = false;
+    const nouveauPanier = panier.filter((produit) => {
+      if (produit.nom === nom && !produitTrouve) {
+        produitTrouve = true; // Supprime une seule occurrence
+        return false;
+      }
+      return true;
+    });
+  
+    // Mettre à jour le stock en ajoutant 1 élément de retour
+    mettreAJourStock(nom, 1); 
+  
+    mettreAJourPanier(nouveauPanier);
+  };
+  
+
   return (
     <section className="panier-section">
       <h2>Panier en cours</h2>
@@ -22,9 +43,15 @@ function PanierSection({ panier, validerCommande, supprimerDuPanier }) {
           <ul>
             {panierRegroupe.map((item, index) => (
               <li key={index}>
+                <button className="btn-moins" onClick={() => reduireQuantite(item.nom)}>-</button>
                 <span>{item.quantite}</span>
                 {item.nom} - {item.prix} GNF 
-                <button className="supprimer-btn" onClick={() => supprimerDuPanier(index)}><FaTrash size={15} /></button>
+                <button 
+                  className="supprimer-btn" 
+                  onClick={() => supprimerProduit(item.nom)}
+                >
+                  <FaTrash size={15} />
+                </button>
               </li>
             ))}
           </ul>

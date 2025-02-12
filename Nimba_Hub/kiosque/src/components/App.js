@@ -38,6 +38,9 @@ function App() {
       );
     }
   };
+  const mettreAJourPanier = (nouveauPanier) => {
+  setPanier(nouveauPanier);
+};
 
   const validerCommande = () => {
     const total = panier.reduce((sum, item) => sum + item.prix, 0);
@@ -45,19 +48,30 @@ function App() {
     setPanier([]);
   };
 
-  const supprimerDuPanier = (index) => {
-    const newPanier = [...panier];
-    const removedItem = newPanier.splice(index, 1)[0];
-
-    setPanier(newPanier);
-
-    // Rendre l'article au stock
-    setBoissons(
-      boissons.map((b) =>
-        b.id === removedItem.id ? { ...b, stock: b.stock + 1 } : b
-      )
-    );
+  const supprimerProduit = (nom) => {
+    // Trouver tous les exemplaires du produit dans le panier
+    const produitsSupprimes = panier.filter((item) => item.nom === nom);
+    const quantiteSupprimee = produitsSupprimes.length;
+  
+    if (quantiteSupprimee === 0) return; // Sécurité : ne rien faire si le produit n'est pas trouvé
+  
+    // Mettre à jour le stock en ajoutant la quantité supprimée
+    setBoissons(boissons.map((boisson) => 
+      boisson.nom === nom ? { ...boisson, stock: boisson.stock + quantiteSupprimee } : boisson
+    ));
+  
+    // Retirer tous les exemplaires du produit du panier
+    const nouveauPanier = panier.filter((item) => item.nom !== nom);
+    setPanier(nouveauPanier);
   };
+
+  const mettreAJourStock = (nom, quantite) => {
+    setBoissons(boissons.map((boisson) => 
+      boisson.nom === nom ? { ...boisson, stock: boisson.stock + quantite } : boisson
+    ));
+  };
+  
+  
 
   return (
     <div className="container">
@@ -68,7 +82,9 @@ function App() {
         <PanierSection
           panier={panier}
           validerCommande={validerCommande}
-          supprimerDuPanier={supprimerDuPanier}
+          supprimerProduit={supprimerProduit}
+          mettreAJourPanier={mettreAJourPanier}
+          mettreAJourStock={mettreAJourStock}
         />
       </div>
     </div>

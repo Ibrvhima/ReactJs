@@ -2,12 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./components/App";
-import StartRating from "./components/Starting";
+// import StartRating from "./components/Starting";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    {/* <App /> */}
-    <StartRating/>
+    <App />
+    {/* <StartRating/> */}
   </React.StrictMode>
 );
