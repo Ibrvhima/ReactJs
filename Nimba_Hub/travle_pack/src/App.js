@@ -8,8 +8,9 @@ function PackingList() {
   // Fonction pour recalculer le pourcentage
   const calculatePercentage = (updatedItems) => {
     const totalItems = updatedItems.length;
-    const packedItems = updatedItems.filter(item => item.packed).length;
-    const percentage = totalItems === 0 ? 0 : Math.round((packedItems / totalItems) * 100);
+    const packedItems = updatedItems.filter((item) => item.packed).length;
+    const percentage =
+      totalItems === 0 ? 0 : Math.round((packedItems / totalItems) * 100);
     setPackedPercentage(percentage);
   };
 
@@ -39,8 +40,13 @@ function PackingList() {
     calculatePercentage(updatedItems); // Recalcule après suppression
   };
 
+  const clearList = () => {
+    setItems([]);
+    setPackedPercentage(0);
+  };
+
   return (
-    <div>
+    <div className="container">
       <h2>Liste des affaires de voyage</h2>
       <input
         type="text"
@@ -51,19 +57,28 @@ function PackingList() {
       <button onClick={addItem}>Ajouter</button>
 
       <h3>Bagages emballés : {packedPercentage}% ✅</h3>
+      <button onClick={clearList}>supprimer tout</button>
+
 
       <ul>
         {items.map((item, index) => (
-          <li key={index} style={{ textDecoration: item.packed ? "line-through" : "none" }}>
+          <li
+            key={index}
+            style={{ textDecoration: item.packed ? "line-through" : "none" }}
+          >
             {item.name}
             <button onClick={() => togglePacked(index)}>Emballé</button>
             <button onClick={() => removeItem(index)}>Supprimer</button>
           </li>
-        ))}
+          
+        )) }
+        
+      <p className={`message ${packedPercentage === 100 ? "show" : ""}`}>🎉 Bon voyage ! 🌍✈️</p>
+
+
       </ul>
     </div>
   );
 }
 
 export default PackingList;
-  
