@@ -55,11 +55,8 @@ function PackingList() {
         placeholder="Ajouter un objet"
       />
       <button onClick={addItem}>Ajouter</button>
-
       <h3>Bagages emballés : {packedPercentage}% ✅</h3>
-      <button onClick={clearList}>supprimer tout</button>
-
-
+      {items.length !== 0 && <button onClick={clearList}>supprimer tout</button>}
       <ul>
         {items.map((item, index) => (
           <li
@@ -70,12 +67,11 @@ function PackingList() {
             <button onClick={() => togglePacked(index)}>Emballé</button>
             <button onClick={() => removeItem(index)}>Supprimer</button>
           </li>
-          
-        )) }
-        
-      <p className={`message ${packedPercentage === 100 ? "show" : ""}`}>🎉 Bon voyage ! 🌍✈️</p>
+        ))}
 
-
+        <p className={`message ${packedPercentage === 100 ? "show" : ""}`}>
+          🎉Vous êtes dejà pret😊 Bon voyage ! 🌍✈️
+        </p>
       </ul>
     </div>
   );
