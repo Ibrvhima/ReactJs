@@ -4,7 +4,9 @@ import TodoFilters from './components/TodoFilter';
 import TodoStats from './components/TodoStat';
 import TodoItem from './components/TodoDisplay';
 import "./App.css"
-const App = () => {
+
+
+export default function App () {
   const [todos, setTodos] = useState([]);
   const [filter, setFilter] = useState('all');
 
@@ -31,13 +33,13 @@ const App = () => {
     <div className="todo-app">
       <h1>Gestionnaire de Tâches</h1>
       <TodoAdd addTodo={addTodo} />
-      <TodoFilters setFilter={setFilter} /> {/* Correction ici */}
+      <TodoFilters setFilter={setFilter} />
       {filteredTodos.map(todo => (
         <TodoItem key={todo.id} todo={todo} deleteTodo={deleteTodo} toggleTodo={toggleTodo} />
       ))}
-      <TodoStats todos={todos} /> {/* Correction ici */}
+      <TodoStats todos={todos} /> 
     </div>
   );
 };
 
-export default App;
+
